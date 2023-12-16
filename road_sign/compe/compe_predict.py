@@ -10,15 +10,14 @@ def _main():
     )
     gen_validation = idg.flow_from_directory(
         directory='val',
-        target_size=(64, 64),
-        batch_size=16,
+        target_size=(500, 500),
+        batch_size=32,
         shuffle=False
     )
 
     # 学習済みのモデルをロード
-    model = tf.keras.models.load_model('model_compe_mobilenet_train.h5')
-    preds = model.predict_generator(gen_validation)
-
+    model = tf.keras.models.load_model('../model.h5')
+    preds = model.predict(gen_validation, steps=len(gen_validation))
     # 検証データは以下の15クラスが6枚ずつ
     labels = [
         '01_stop',

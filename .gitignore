@@ -4,6 +4,7 @@ logs
 modifyed
 *.h5
 *.keras
+line_notify_token
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
