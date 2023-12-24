@@ -4,7 +4,11 @@ logs
 modifyed
 *.h5
 *.keras
+*.pth
+*.onnx
+*.pb
 line_notify_token
+!model.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

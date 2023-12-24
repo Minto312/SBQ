@@ -1,0 +1,23 @@
+numpy
+pandas
+opencv-python
+matplotlib
+# tensorflow
+# scikit-learn
+
+
+onnx
+onnxruntime
+
+# onnx-tf
+
+
+# onnx2tf
+# tensorflow
+# nvidia-pyindex
+# onnx-graphsurgeon
+# sng4onnx
+# onnxsim
+
+
+# onnx2keras

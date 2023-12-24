@@ -10,9 +10,11 @@ class Model(nn.Module):
                                    nn.BatchNorm2d(64),
                                    nn.ReLU())
 
-        self.fc1 = nn.Linear(2 * 2 * 64, 100)
+        self.fc1 = nn.Sequential(nn.Linear(120 * 160 * 64, 100),
+                                 nn.ReLU())
         self.dropout = nn.Dropout(0.5)
-        self.fc2 = nn.Linear(100, 2)
+        self.fc2 = nn.Sequential(nn.Linear(100, 3),
+                                 nn.Softmax(dim=1))
 
     def forward(self, x):
         x = self.conv1(x)
