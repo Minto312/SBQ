@@ -1,10 +1,8 @@
 version: "3"
 services:
   gpt2:
-    name: torch
-    build:
-      context: .
-      dockerfile: Dockerfile
+    name: janken-tf
+    build: tensorflow/tensorflow:latest-gpu
     volumes:
       - ../:/code
     tty: true

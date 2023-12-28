@@ -13,6 +13,7 @@ optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate)
 
 
 def plot_result(history):
+    epochs = len(history.history["accuracy"])
     """
     全ての学習が終了した後に、historyを参照して、accuracyとlossをそれぞれplotする
     """
