@@ -1,19 +1,25 @@
 version: "3"
 services:
-  gpt2:
-    name: janken-tf
-    build: tensorflow/tensorflow:latest-gpu
+  gpu:
+    container_name: sbq-tf
+    # image: tensorflow/tensorflow:latest-gpu
+    image: nvidia/cuda:12.3.1-devel-ubuntu20.04
     volumes:
       - ../:/code
+      - /dev/shm:/dev/shm
     tty: true
     stdin_open: true
     ipc: host
+    runtime: nvidia
     deploy:
       resources:
         reservations:
           devices:
-            - capabilities: [gpu]
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=all
+      - DISPLAY="docker.host.internal:0"
     command: /bin/bash
